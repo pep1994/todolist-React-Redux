@@ -1,24 +1,32 @@
-import React, { Component} from 'react'
-import { render } from '@testing-library/react';
-import { addTodo } from '../actions';
+import React, { Component } from 'react'
+
 
 
 class AddToDo extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.todoInput = React.createRef();
     }
-    
+
     render() {
         return (
             <div className="addtodo">
-                <input ref={this.todoInput}/>
+                <input onKeyUp={
+                    (e) => {
+                        if (e.keyCode === 13) {
+                            this.props.addnew(this.todoInput.current.value)
+                            this.todoInput.current.value = "";
+                        }
+
+                    }
+                }
+                    ref={this.todoInput} />
                 <button onClick={
-                    ()=>{
+                    () => {
                         this.props.addnew(this.todoInput.current.value)
                         this.todoInput.current.value = "";
                     }
-                } 
+                }
                 >Add</button>
             </div>
         )

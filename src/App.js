@@ -6,12 +6,8 @@ import Addnew from './containers/addnew';
 
 
 class App extends Component {
-  constructor(props){
-    super(props);
-    
-  }
-  render(){
 
+  render(){
     return (
       <div className="App">
         <Header />
