@@ -22,3 +22,10 @@ export const toggleTodo = (i) => {
          id: i
      };
  };
+
+ export const filterTodo = (filter = "ALL") => {
+     return {
+         type: "SET_FILTER",
+         activeFilter: filter
+     }
+ }

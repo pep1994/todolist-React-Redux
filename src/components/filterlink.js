@@ -1,9 +1,16 @@
 import React from 'react'
 
 
-const filterLink = ( {actionType, children} ) => {
+const filterLink = ( {activeFilter, onClickFilter, actionType, children} ) => {
+    if(activeFilter === actionType) {
+        return children;
+    }
     return (
-        <a href= "#" onClick= {(e) => {e.preventDefault()}}>
+        <a href= "#" onClick= {(e) => {
+            e.preventDefault();
+            onClickFilter(actionType);
+            }}
+            >
             {children}
         </a>
     )

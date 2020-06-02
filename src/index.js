@@ -8,6 +8,7 @@ import storeReducer from './reducers/index'
 import {Provider} from 'react-redux'
 
 let storeTodos ={
+  activeFilter: "ALL",
    todos: [
     {id:0, todo: 'fare la spesa', completed: false},
     {id:1, todo: 'studiare React', completed: true},
@@ -15,7 +16,7 @@ let storeTodos ={
   ]
 };
 
-const store = createStore(storeReducer, {todos: [...storeTodos.todos]});
+const store = createStore(storeReducer, { ...storeTodos});
 
 ReactDOM.render(
   <Provider store={store}>
