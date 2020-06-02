@@ -6,7 +6,7 @@ function todolist(props) {
     return (
         <ul>
           {
-            props.todos.map( (item, i) => { return <Todo id={i} onClick={props.removeTodo} todo={item} /> } )
+            props.todos.map( (item) => { return <Todo key={item.id} id={item.id} onClick={props.toggleTodo} todoItem={item} /> } )
           }
         </ul>
     )

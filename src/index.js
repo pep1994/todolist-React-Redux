@@ -7,13 +7,15 @@ import { createStore } from 'redux'
 import storeReducer from './reducers/index'
 import {Provider} from 'react-redux'
 
-let todos = [
-  'fare la spesa',
-  'studiare React',
-  'chiamare il commercialista'
-];
+let storeTodos ={
+   todos: [
+    {id:0, todo: 'fare la spesa', completed: false},
+    {id:1, todo: 'studiare React', completed: true},
+    {id:2, todo: 'chiamare il commercialista', completed:false}
+  ]
+};
 
-const store = createStore(storeReducer, {todos: [...todos]});
+const store = createStore(storeReducer, {todos: [...storeTodos.todos]});
 
 ReactDOM.render(
   <Provider store={store}>

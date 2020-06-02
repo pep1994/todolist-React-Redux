@@ -2,9 +2,13 @@
 export default function storeReducer(state = {}, action) {
     switch (action.type) {
         case 'ADD_TODO':
-            return{
+            return {
                 todos: [
-                    action.todo,
+                    {
+                        id: state.todos.length,
+                        todo: action.payload.text,
+                        completed: action.payload.completed
+                    },
                     ...state.todos
                 ]
             }
@@ -17,12 +21,28 @@ export default function storeReducer(state = {}, action) {
                 ]
             }
             break;
-    
+        case 'TOGGLE_TODO':
+            return {
+                todos: 
+                    state.todos.map((todo) => {
+                        if (todo.id !== action.id) {
+                            return todo
+                        }
+                        return {
+                            ...todo,
+                            completed: !todo.completed
+                        }
+                    })
+                    
+                
+            }
+            break;
+
         default:
-            return {...state}
+            return { ...state }
             break;
     }
-    
+
 }
 
 
