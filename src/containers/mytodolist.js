@@ -1,5 +1,7 @@
 import {connect} from 'react-redux'
 import TodoList from '../components/todolist'
+import { removeTodo } from '../actions'
+
 
 const mapStateToProps = (state) => {
     return {
@@ -7,7 +9,7 @@ const mapStateToProps = (state) => {
     }
 }
 
-const myConnect = connect(mapStateToProps);
+const myConnect = connect(mapStateToProps, {removeTodo});
 
 const MyTodoList = myConnect(TodoList);
 export default MyTodoList;

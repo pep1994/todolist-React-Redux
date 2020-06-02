@@ -1,13 +1,29 @@
-import React, {Fragment} from 'react'
-let todoInput;
+import React, {Fragment, Component} from 'react'
+import { render } from '@testing-library/react';
+import { addTodo } from '../actions';
 
-function addtodo(props) {
-    return (
-        <Fragment>
-            <input/>
-            <button>Add</button>
-        </Fragment>
-    )
+
+class AddToDo extends Component {
+    constructor(props){
+        super(props);
+        this.todoInput = React.createRef();
+    }
+    
+    render() {
+        return (
+            <Fragment>
+                <input ref={this.todoInput}/>
+                <button onClick={
+                    ()=>{
+                        this.props.addnew(this.todoInput.current.value)
+                        this.todoInput.current.value = "";
+                    }
+                } 
+                >Add</button>
+            </Fragment>
+        )
+
+    }
 }
 
-export default addtodo
+export default AddToDo

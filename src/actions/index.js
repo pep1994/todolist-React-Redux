@@ -1,4 +1,3 @@
-import storeReducer from "../reducers";
 
 export const addTodo = (todo) => { 
    return {
