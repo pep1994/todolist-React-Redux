@@ -16,7 +16,22 @@ let storeTodos ={
   ]
 };
 
+if ( localStorage.getItem('mytodolist')) {
+  const currState = JSON.parse(localStorage.getItem('mytodolist'))
+  if (currState) {
+    storeTodos = currState;
+  }
+}
+
 const store = createStore(storeReducer, { ...storeTodos});
+
+store.subscribe( 
+  () => {
+    const currState = JSON.stringify(store.getState());
+
+    localStorage.setItem('mytodolist', currState);
+  }
+);
 
 ReactDOM.render(
   <Provider store={store}>
