@@ -1,13 +1,24 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom'
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { createStore } from 'redux'
+import storeReducer from './reducers/index'
+import {Provider} from 'react-redux'
+
+let todos = [
+  'fare la spesa',
+  'studiare React',
+  'chiamare il commercialista'
+];
+
+const store = createStore(storeReducer, {todos: [...todos]});
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 
