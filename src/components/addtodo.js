@@ -1,4 +1,4 @@
-import React, {Fragment, Component} from 'react'
+import React, { Component} from 'react'
 import { render } from '@testing-library/react';
 import { addTodo } from '../actions';
 
@@ -11,7 +11,7 @@ class AddToDo extends Component {
     
     render() {
         return (
-            <Fragment>
+            <div className="addtodo">
                 <input ref={this.todoInput}/>
                 <button onClick={
                     ()=>{
@@ -20,7 +20,7 @@ class AddToDo extends Component {
                     }
                 } 
                 >Add</button>
-            </Fragment>
+            </div>
         )
 
     }

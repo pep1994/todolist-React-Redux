@@ -27,11 +27,39 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.container {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+li {
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+  cursor: pointer;
+  min-width: 250px;
+}
+
+li:hover:after {
+  content: '\02A2F';
+  color: red;
+  font-size: 20px;
+  float: right;
+  margin-right: 5px;
+}
+
+li:last-child {
+  border: 0;
+}
+
+li span:after {
+  content: '\025A1';
+  font-size: 28px;
+  padding: 4px;
 }

@@ -15,8 +15,10 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Addnew />
-        <MyTodoList/>
+        <div className="container">
+          <Addnew />
+          <MyTodoList/>
+        </div>
       </div>
     );
   }
